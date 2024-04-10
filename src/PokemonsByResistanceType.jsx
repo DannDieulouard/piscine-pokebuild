@@ -2,7 +2,7 @@ import {useState} from "react";
 
 const PokemonsByResistanceType = () => {
 
-    const [pokemon, setPokemon] = useState(null);
+    const [pokemons, setPokemons] = useState(null);
     const handleSelectType = (event) => {
         event.preventDefault();
         
@@ -17,11 +17,11 @@ const PokemonsByResistanceType = () => {
             }
           })
         .then((data) => {
-             setPokemon(data);
+             setPokemons(data);
         });
     };
 
-    console.log(pokemon);
+    console.log(pokemons);
 
     return (
         <section>
@@ -36,8 +36,8 @@ const PokemonsByResistanceType = () => {
                 </select>
                 <input type="submit" />
             </form>
-            {!pokemon ? <p>Pokémons en cours de chargement</p> :
-                pokemon.map((pokemon) => {
+            {!pokemons ? <p>Pokémons en cours de chargement</p> :
+                pokemons.map((pokemon) => {
                     return (
                         <article key = {pokemon.id}>
                             <img src = {pokemon.image} alt="" />

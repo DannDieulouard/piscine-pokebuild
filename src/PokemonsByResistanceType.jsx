@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const PokemonsByResistanceType = () => {
 
@@ -21,18 +21,29 @@ const PokemonsByResistanceType = () => {
         });
     };
 
-    console.log(pokemons);
+    const [types, setTypes] = useState([]);
+
+      useEffect(() => {
+        fetch("https://pokebuildapi.fr/api/v1/types")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+            return setTypes(data);
+        });
+        }, []);
+
 
     return (
         <section>
             <form onSubmit={handleSelectType}>
                 <label>Découvrez les pokémons résistants au type suivant :</label>
                 <select name="type">
-                    <option value="Feu">Feu</option>
-                    <option value="Eau">Eau</option>
-                    <option value="Plante">Plante</option>
-                    <option value="Acier">Acier</option>
-                    <option value="Spectre">Spectre</option>
+                    {types.map((type) => {
+                    return (
+                        <option value={type.name}>{type.name}</option>
+                    )
+                    })};
                 </select>
                 <input type="submit" />
             </form>

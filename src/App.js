@@ -1,33 +1,25 @@
-import Header from "./Header";
-import HundredFirstPokemons from "./HundredFirstPokemons";
-import PokemonInteraction from "./PokemonInteraction";
-import PokemonsByGeneration from "./PokemonsByGeneration";
-import PokemonsByResistanceType from "./PokemonsByResistanceType";
-import PokemonsByType from "./PokemonsByType";
-import PokemonsTeamAleatoire from "./PokemonsTeamAleatoire";
-import TypesOfPokemons from "./TypesOfPokemons";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./page/HomePage";
+import PokemonResistancePage from "./page/PokemonResistancePage";
+import PokemonGenerationPage from "./page/PokemonGenerationPage";
+import PokemonRandomTeamPage from "./page/PokemonRandomTeamPage";
+import PokemonByTypePage from "./page/PokemonByTypePage";
+import PokemonFinderPage from "./page/PokemonFinderPage";
+import TypesOfPokemonsPage from "./page/TypesOfPokemonsPage";
 
 function App() {
   return (
-    <>
-    <Header />
-    <PokemonsByResistanceType />
-    {/* <PokemonInteraction /> */}
-    {/* <PokemonsByGeneration genNbr={"1"} />
-    <PokemonsByGeneration genNbr={"2"} />
-    <PokemonsByGeneration genNbr={"3"} />
-    <PokemonsByGeneration genNbr={"4"} />
-    <PokemonsByGeneration genNbr={"5"} />
-    <PokemonsByGeneration genNbr={"6"} />
-    <PokemonsByGeneration genNbr={"7"} />
-    <PokemonsByGeneration genNbr={"8"} /> */}
-    {/* <PokemonsByType type={"Feu"}/>
-    <PokemonsByType type={"Eau"}/>
-    <PokemonsByType type={"Spectre"}/> */}
-    {/* <HundredFirstPokemons />
-    <PokemonsTeamAleatoire />
-    <TypesOfPokemons /> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/resistance-type" element={<PokemonResistancePage />} />
+        <Route path="/generation" element={<PokemonGenerationPage />} />
+        <Route path="/random-team" element={<PokemonRandomTeamPage />} />
+        <Route path="/pokemon-by-type" element={<PokemonByTypePage />} />
+        <Route path="/pokemon-finder" element={<PokemonFinderPage />} />
+        <Route path="/types-of-pokemons" element={<TypesOfPokemonsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

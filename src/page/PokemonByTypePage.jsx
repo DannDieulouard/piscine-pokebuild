@@ -5,7 +5,9 @@ const PokemonByTypePage = () => {
     return (
       <>
         <Header />
-        <PokemonsByType />
+        <PokemonsByType type={"Feu"} />
+        <PokemonsByType type={"Eau"} />
+        <PokemonsByType type={"Spectre"} />
       </>
     );
   };

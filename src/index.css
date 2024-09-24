@@ -12,60 +12,283 @@ code {
     monospace;
 }
 
-header {
-  background-color: skyblue;
-  height: 300px;
-  width: 100%;
-  
+@font-face {
+  font-family: pokemon;
+  src: url(/public/Pokemon\ Classic.ttf);
 }
 
-header img {
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: pokemon;
+  color: rgb(255, 255, 255);
+}
+
+.spinner{
+  height: 100px;
+  width: 100px;
+  animation-duration: 1s;
+  animation-name: spinnerPokeball;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+
+@keyframes spinnerPokeball {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h2, h3{
+  text-transform: uppercase;
+}
+
+body{
+  background-color: black;
+}
+
+
+header a{
+  color: black;
+}
+
+.logo-header{
   height: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  width: 150px;
 }
 
-header h1 {
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-header ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-li {
-  list-style-type: none;
-}
-
-footer {
-  background-color: rgb(245, 96, 96);
-}
-
-section {
+container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: center;
+  text-align: center;
+  gap: 10rem;
 }
 
-section h1 {
-  text-decoration: underline;
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffcd00;
+  height: 200px;
+  margin-bottom: 10rem;
+  padding-bottom: 3rem;
+  border-radius: 0 0 10% 10%;
+  border-bottom: rgba(0, 0, 0, 0.649) 5px solid;
 }
 
-button {
-  text-align: left;
+header ul{
+  display: flex;
+  gap: 3rem;
+  font-size: 13px;
+}
+
+header a:hover{
+
+  color: white;
+}
+
+header p {
+  text-align: center;
+  color: black;
+  margin-top: 60px;
+  font-size: 7px;
+}
+
+.waterPokemons:hover{
+  color: #2481EF;
+}
+
+.firePokemons:hover{
+  color: #E72324;
+}
+
+.grassPokemons:hover{
+  color: #3DA224;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  gap: 5rem;
+  width: 100%;
+}
+
+article{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-top: rgb(255, 255, 255) solid 3px;
+}
+
+.stats{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+  gap: 1rem;
+}
+
+.statsLeft{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+
+.infoPokemon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+
+.pokemonImage{
+  height: 150px;
+  width: 150px;
+}
+
+
+.typePokemon{
+  display: flex;
+  gap: 1rem;
+}
+
+
+.pokeForm{
+  display: flex;
+  flex-direction: column;
+  gap:1rem ;
+}
+
+
+.pokeInput, .selectInput{
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.pokeInput2{
+  margin-top: 1rem;
+}
+
+.Acier{
+    color: #60A2B9
+}
+
+.Dragon{
+  color: #4F60E2
+}
+
+.Électrik{
+  color: #FAC100
+
+}
+
+.Feu{
+  color: #E72324;
+
+}
+
+.Insecte{
+  color: #92A212
+
+}
+
+.Plante{
+
+  color: #3DA224
+
+}
+
+.Psy{
+
+  color: #EF3F7A
+}
+
+.Sol{
+  color: #92501B
+
+}
+
+.Ténèbres{
+
+ color: #4F3F3D
+
+}
+
+.Combat{
+  color: #FF8100
+
+}
+
+
+.Eau{
+  color:#2481EF ;
+}
+
+.Fée{
+color:#EF70EF ;
+
+}
+
+.Glace{
+  color: #3DD9FF;
+
+}
+
+.Normal{
+  color: #A0A2A0;
+
+}
+
+.Poison{
+  color: #923FCC;
+
+}
+
+.Roche{
+  color: #B0AA82;
+
+}
+
+.Spectre{
+  color: #703F70;
+
+}
+
+.Vol{
+  color: #82BAEF;
+
+}
+
+.finder{
+  color: black;
+}
+
+
+
+.displayStats{
+  display : none
 }

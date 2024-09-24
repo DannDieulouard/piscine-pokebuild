@@ -1,11 +1,11 @@
 import Header from "../component/Header.jsx";
-import PokemonInteraction from "../component/PokemonInteraction.jsx";
+import PokemonFinder from "../component/PokemonFinder.jsx";
 
 const PokemonFinderPage = () => {
     return (
       <>
         <Header />
-        <PokemonInteraction />
+        <PokemonFinder />
       </>
     );
   };

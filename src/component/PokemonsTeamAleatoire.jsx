@@ -1,4 +1,5 @@
 import {useEffect, useState } from "react";
+import PokemonCard from "./PokemonCard"
 
 const PokemonsTeamAleatoire = () => {
     const [pokemons, setPokemons] = useState([]);
@@ -15,30 +16,20 @@ const PokemonsTeamAleatoire = () => {
 
     return (
         <section>
-            <h1>Team aléatoire de 6 pokemons</h1>
-            {pokemons.map((random)=>{
-                        return (
-                            <div>
-                                <h2>{random.name}</h2>
-                                <img src={random.image} alt={random.name}/>
-                                <h3>Type :</h3>  {random.apiTypes.map((type)=>{
-                            return (
-                                <h3>{type.name}</h3>
-                            )
-                        })}
-                        <h4>Stats :</h4> 
-                        <ul>
-                            <li>Vie : {random.stats.HP}</li>
-                            <li>Attaque : {random.stats.attack}</li>
-                            <li>Defense : {random.stats.defense}</li>
-                            <li>Attaque Speciale : {random.stats.special_attack}</li>
-                            <li>Defense Speciale : {random.stats.special_defense}</li>
-                            <li>Vitesse  : {random.stats.speed}</li>
-                        </ul>
-                        </div>
-                        )
-                    })}
-        </section>
+        <h2>Random Team</h2>
+        {pokemons ? (
+        <>
+        {pokemons.map((pokemon)=>{
+        return(
+            <PokemonCard  pokemon = {pokemon}/>
+           
+        )
+    })}
+        </>
+    ): <img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" />
+}
+
+    </section>
     );
 };
 

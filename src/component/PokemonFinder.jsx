@@ -17,15 +17,13 @@ const PokemonFinder = () => {
       });
     };
 
-console.log(pokemon);
-
     return (
       <section>
-      <h2>Pokemon finder</h2>
+      <h2>Poke Finder</h2>
       <form onSubmit={handleSubmit} action="">
           <label htmlFor="">Find Pokemon by name - French names only !</label>
           <input className="pokeInput" name="pokeFinder" type="text" />
-          <input className="pokeInput pokeInput2" type="submit" />
+          <input className="pokeInput pokeInput2" type="submit" value="Send" />
       </form>
 
       {pokemon && (

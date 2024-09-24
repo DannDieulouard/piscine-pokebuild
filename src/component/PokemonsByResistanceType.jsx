@@ -37,7 +37,7 @@ const PokemonsByResistanceType = () => {
     return (
         <section>
             <form onSubmit={handleSelectType}>
-                <label>Découvrez les pokémons résistants au type suivant :</label>
+                <label>Discover Pokemons resistant to the following type : </label>
                 <select name="type">
                     {types.map((type) => {
                     return (
@@ -45,9 +45,9 @@ const PokemonsByResistanceType = () => {
                     )
                     })};
                 </select>
-                <input type="submit" />
+                <input type="submit" value="Send"/>
             </form>
-            {!pokemons ? <p>Pokémons en cours de chargement</p> :
+            {!pokemons ? <img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" /> :
                 pokemons.map((pokemon) => {
                     return (
                         <article key = {pokemon.id}>

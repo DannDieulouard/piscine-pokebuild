@@ -1,43 +1,35 @@
 import {useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import PokemonCard from "./PokemonCard"
 
-const PokemonsByGeneration = ( { genNbr }) => {
+const PokemonsByGeneration = (  ) => {
     const [pokemons, setPokemons] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
-    fetch("https://pokebuildapi.fr/api/v1/pokemon/generation/" + genNbr)
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/generation/" + id, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
     .then((response) => {
       return response.json();
     })
     .then((data) => {
         return setPokemons(data);
     });
-}, []);
+}, [id]);
 
     return (
         <section>
-            <h1>Liste des Pokemons de la Gen.{genNbr}</h1>
-            {pokemons.map((gen1)=>{
-                        return (
-                            <div>
-                                <h2>{gen1.name}</h2>
-                                <img src={gen1.image} alt={gen1.name}/>
-                                <h3>Type :</h3>  {gen1.apiTypes.map((type)=>{
-                            return (
-                                <h3>{type.name}</h3>
-                            )
-                        })}
-                        <h4>Stats :</h4> 
-                        <ul>
-                            <li>Vie : {gen1.stats.HP}</li>
-                            <li>Attaque : {gen1.stats.attack}</li>
-                            <li>Defense : {gen1.stats.defense}</li>
-                            <li>Attaque Speciale : {gen1.stats.special_attack}</li>
-                            <li>Defense Speciale : {gen1.stats.special_defense}</li>
-                            <li>Vitesse  : {gen1.stats.speed}</li>
-                        </ul>
-                        </div>
-                        )
-                    })}
+            <h1>List of Pokemons from Generation {id}</h1>
+            {!pokemons ? <><img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" /><p>Waiting for your choice</p> </>:
+                pokemons.map((pokemon) => {
+                    return (
+                        <PokemonCard  pokemon = {pokemon}/>
+                        )})
+                    }
         </section>
     );
 };

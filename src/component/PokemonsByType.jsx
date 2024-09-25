@@ -1,45 +1,61 @@
 import {useEffect, useState} from "react";
+import PokemonCard from "./PokemonCard"
 
-const PokemonsByType = ({ type }) => {
-    const [pokemons, setPokemons] = useState([]);
+const PokemonsByResistanceType = () => {
 
-    useEffect(() => {
-    fetch("https://pokebuildapi.fr/api/v1/pokemon/type/" + type)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-        return setPokemons(data);
-    });
-}, []);
+    const [pokemons, setPokemons] = useState(null);
+    const handleSelectType = (event) => {
+        event.preventDefault();
+        
+        const TypeToSearch = event.target.type.value;
+  
+        fetch("https://pokebuildapi.fr/api/v1/pokemon/type/" + TypeToSearch)
+        .then((response) => {
+            if (response.status === 200) {
+              return response.json();
+            } else {
+              return false;
+            }
+          })
+        .then((data) => {
+             setPokemons(data);
+        });
+    };
+
+    const [types, setTypes] = useState([]);
+
+      useEffect(() => {
+        fetch("https://pokebuildapi.fr/api/v1/types")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+            return setTypes(data);
+        });
+        }, []);
+
 
     return (
         <section>
-            <h1>La liste entière des pokémons de type {type}</h1>
-            {pokemons.map((type)=>{
-                        return (
-                            <div>
-                                <h2>{type.name}</h2>
-                                <img src={type.image} alt={type.name}/>
-                                <h3>Type :</h3>  {type.apiTypes.map((type)=>{
-                            return (
-                                <h3>{type.name}</h3>
-                            )
-                        })}
-                        <h4>Stats :</h4> 
-                        <ul>
-                            <li>Vie : {type.stats.HP}</li>
-                            <li>Attaque : {type.stats.attack}</li>
-                            <li>Defense : {type.stats.defense}</li>
-                            <li>Attaque Speciale : {type.stats.special_attack}</li>
-                            <li>Defense Speciale : {type.stats.special_defense}</li>
-                            <li>Vitesse  : {type.stats.speed}</li>
-                        </ul>
-                        </div>
-                        )
-                    })}
+            <form onSubmit={handleSelectType}>
+                <label>Discover Pokemons from the following type : </label>
+                <select className="selectInput" name="type">
+                    {types.map((type) => {
+                    return (
+                        <option className= "pokeInput" value={type.name}>{type.name}</option>
+                    )
+                    })};
+                </select>
+                <input className="pokeInput pokeInput2" type="submit" value="Send"/>
+            </form>
+            {!pokemons ? <><img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" /><p>Waiting for your choice</p> </>:
+                pokemons.map((pokemon) => {
+                    return (
+                        <PokemonCard  pokemon = {pokemon}/>
+                        )})
+                    }
         </section>
-    );
-};
+    )
+}
 
-export default PokemonsByType;
+export default PokemonsByResistanceType;

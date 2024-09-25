@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import PokemonCard from "./PokemonCard"
 
 const PokemonsByResistanceType = () => {
 
@@ -50,17 +51,7 @@ const PokemonsByResistanceType = () => {
             {!pokemons ? <><img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" /><p>Waiting for your choice</p> </>:
                 pokemons.map((pokemon) => {
                     return (
-                        <article key = {pokemon.id}>
-                            <img src = {pokemon.image} alt="" />
-                            <p>Name: {pokemon.name}</p>
-                            <p>Type: {pokemon.apiTypes[(pokemon.apiTypes.length)-1].name}</p>
-                            <p>HP: {pokemon.stats.HP}</p>
-                            <p>defense: {pokemon.stats.attack}</p>
-                            <p>special attack: {pokemon.stats.defense}</p>
-                            <p>special attack: {pokemon.special_attack}</p>
-                            <p>special defense: {pokemon.stats.special_defense}</p>
-                            <p>speed: {pokemon.stats.speed}</p>
-                        </article>
+                        <PokemonCard  pokemon = {pokemon}/>
                         )})
                     }
         </section>

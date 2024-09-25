@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/Pokemon-removebg-preview.png';
+import logo from '../component/images/Angry_Pikachu.jpg';
 import '../../src/index.css'; 
 
 const NotFoundPage = () => {

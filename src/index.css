@@ -45,22 +45,18 @@ code {
   }
 }
 
+.mainLogo {
+  color: black;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 h2, h3{
   text-transform: uppercase;
 }
 
 body{
   background-color: black;
-}
-
-
-header a{
-  color: black;
-}
-
-.logo-header{
-  height: 150px;
-  width: 150px;
 }
 
 header{
@@ -70,7 +66,7 @@ header{
   align-items: center;
   background-color: #ffcd00;
   height: 200px;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
   padding-bottom: 3rem;
   border-radius: 0 0 10% 10%;
   border-bottom: rgba(0, 0, 0, 0.649) 5px solid;
@@ -82,8 +78,11 @@ header ul{
   font-size: 13px;
 }
 
-header a:hover{
+header a{
+  color: black;
+}
 
+header a:hover{
   color: white;
 }
 
@@ -165,6 +164,16 @@ article{
   flex-direction: column;
   gap: 1rem;
   margin-top: 3rem;
+}
+
+.selectHeader {
+  color: black;
+  background-color: #ffcd00;
+  border: transparent;
+}
+
+.selectHeader option {
+  color: black;
 }
 
 .pokeInput2{

@@ -63,15 +63,6 @@ header a{
   width: 150px;
 }
 
-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 10rem;
-}
-
 header{
   display: flex;
   flex-direction: column;
@@ -103,24 +94,11 @@ header p {
   font-size: 7px;
 }
 
-.waterPokemons:hover{
-  color: #2481EF;
-}
-
-.firePokemons:hover{
-  color: #E72324;
-}
-
-.grassPokemons:hover{
-  color: #3DA224;
-}
-
 section{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
   gap: 5rem;
   width: 100%;
 }
@@ -287,8 +265,37 @@ color:#EF70EF ;
   color: black;
 }
 
-
-
 .displayStats{
   display : none
+}
+
+.not-found-container {
+  text-align: center;
+  padding: 50px;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.not-found-title {
+  font-size: 100px;
+  margin: 0;
+}
+
+.not-found-message {
+  font-size: 24px;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #654028;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.home-link:hover {
+  background-color: #BE9472;
 }

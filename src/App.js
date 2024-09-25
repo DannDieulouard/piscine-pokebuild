@@ -6,12 +6,14 @@ import PokemonRandomTeamPage from "./page/PokemonRandomTeamPage";
 import PokemonByTypePage from "./page/PokemonByTypePage";
 import PokemonFinderPage from "./page/PokemonFinderPage";
 import TypesOfPokemonsPage from "./page/TypesOfPokemonsPage";
+import NotFoundPage from "./page/NotFoundPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/resistance-type" element={<PokemonResistancePage />} />
         <Route path="/generation" element={<PokemonGenerationPage />} />
         <Route path="/random-team" element={<PokemonRandomTeamPage />} />

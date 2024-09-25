@@ -38,16 +38,16 @@ const PokemonsByResistanceType = () => {
         <section>
             <form onSubmit={handleSelectType}>
                 <label>Discover Pokemons resistant to the following type : </label>
-                <select name="type">
+                <select className="selectInput" name="type">
                     {types.map((type) => {
                     return (
-                        <option value={type.name}>{type.name}</option>
+                        <option className= "pokeInput" value={type.name}>{type.name}</option>
                     )
                     })};
                 </select>
-                <input type="submit" value="Send"/>
+                <input className="pokeInput pokeInput2" type="submit" value="Send"/>
             </form>
-            {!pokemons ? <img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" /> :
+            {!pokemons ? <><img className="spinner" src="/32eb230b326ee3c76e64f619a06f6ebb.png" alt="" /><p>Waiting for your choice</p> </>:
                 pokemons.map((pokemon) => {
                     return (
                         <article key = {pokemon.id}>

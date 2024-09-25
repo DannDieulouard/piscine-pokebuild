@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import logo from '../images/Pokemon-removebg-preview.png';
 
 const Header = () => {
     return (
         <header>
-            <Link to="/"><img className="logo-header" src="/Pokemon-removebg-preview.png" alt="Home" /></Link>
+            <Link to="/"><img className="logo-header" src={logo} alt="Home" /></Link>
                     <nav>
                         <ul class="menu">
                             <li><Link to="/">151 first pokemons</Link> </li>

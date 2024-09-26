@@ -8,10 +8,22 @@ const Header = () => {
         }
     };
 
+    const toggleMenu = () => {
+        const burger = document.getElementById('burger');
+        const menu = document.querySelector('.menu');
+        burger.classList.toggle('open');
+        menu.classList.toggle('show');
+      };
+
     return (
         <header>
-            <Link to="/"><h1 className="mainLogo">Pokebuild</h1></Link>
+            <Link to="/"><h1 className="headerLogo">Pokebuild</h1></Link>
             <nav>
+            <div id="burger" className="burger" onClick={toggleMenu}>
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
                 <ul className="menu">
                     <li><Link to="/">151 First Pokémons</Link></li>
                     <li><Link to="/pokemon-finder">PokeFinder</Link></li>
@@ -35,7 +47,6 @@ const Header = () => {
                     <li><Link to="/random-team">Random Team</Link></li>
                 </ul>
             </nav>
-            <p>Pokémon and its trademarks are 1995-2024 Nintendo, Creatures, and GAMEFREAK. English card images appearing on this website are property of The Pokémon Company International, Inc. This website is not in any way affiliated with or sponsored by the aforementioned companies.</p>
         </header>
     );
 };

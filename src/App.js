@@ -7,10 +7,15 @@ import PokemonByTypePage from "./page/PokemonByTypePage";
 import PokemonFinderPage from "./page/PokemonFinderPage";
 import TypesOfPokemonsPage from "./page/TypesOfPokemonsPage";
 import NotFoundPage from "./page/NotFoundPage";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
 
 function App() {
   return (
     <BrowserRouter>
+    <div className="container">
+      <Header />
+      <main>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
@@ -21,6 +26,9 @@ function App() {
         <Route path="/pokemon-finder" element={<PokemonFinderPage />} />
         <Route path="/types-of-pokemons" element={<TypesOfPokemonsPage />} />
       </Routes>
+      </main>
+      <Footer />
+      </div>
     </BrowserRouter>
   );
 };

@@ -241,7 +241,7 @@ header p {
   }
 
   .menu.show {
-    height: calc(42vh);
+    height: calc(50vh);
   }
 
   .menu a {
